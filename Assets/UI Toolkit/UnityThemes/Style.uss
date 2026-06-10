@@ -1,0 +1,17 @@
+VisualElement {
+}
+
+.grid-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-shrink: 1;
+}
+
+.grid-button {
+    aspect-ratio:1;
+    width: 75%;
+    height: auto;
+    margin: 5px;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
