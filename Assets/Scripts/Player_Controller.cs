@@ -13,6 +13,8 @@ public class Player_Controller : MonoBehaviour
     public Rigidbody rb;
 
     private Vector2 move;
+    public float checkRadius = 0.2f;
+    public bool isGrounded;
 
     private void Awake()
     {
@@ -28,7 +30,7 @@ public class Player_Controller : MonoBehaviour
     [System.Obsolete]
     public void OnJump(InputValue value)
     {
-        if (value.isPressed)
+        if (value.isPressed && isGrounded)
         {
             Debug.Log("Spacebar press registered by Unity!");
 
@@ -74,11 +76,29 @@ public class Player_Controller : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        if (transform.position.y < -100)
+        if (transform.position.y < -1000)
         {
             transform.position = new Vector3(0, 10, 0);
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
         }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        foreach (ContactPoint contact in collision.contacts)
+        {
+            if (contact.normal.y > 0.6f)
+            {
+                isGrounded = true;
+                return;
+            }
+        }
+        isGrounded = false;
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        isGrounded = false;
     }
 }
