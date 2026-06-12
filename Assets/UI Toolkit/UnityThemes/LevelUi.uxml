@@ -1,0 +1,11 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1; flex-direction: row; align-self: flex-start; flex-wrap: nowrap; align-items: flex-start; justify-content: center;">
+        <ui:VisualElement style="flex-grow: 1;"/>
+        <ui:VisualElement style="flex-grow: 1;">
+            <ui:Label text="" name="Instruct" style="font-size: 64px; height: 86px; -unity-text-align: upper-center;"/>
+        </ui:VisualElement>
+        <ui:VisualElement style="flex-grow: 1; -unity-text-align: upper-right;">
+            <ui:Label text="Nan" name="Timer" style="font-size: 64px;"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

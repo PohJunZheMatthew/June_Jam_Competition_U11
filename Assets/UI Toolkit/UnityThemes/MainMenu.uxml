@@ -1,7 +1,7 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/UnityThemes/Style.uss?fileID=7433441132597879392&amp;guid=12fb234e8fc1449ea9ded7ad358d1bc4&amp;type=3#Style"/>
     <ui:VisualElement style="flex-grow: 1; padding: 25px;">
-        <ui:Label text="Cupcake" style="font-size: 104px; -unity-text-align: lower-left;"/>
+        <ui:Label text="Cup game" style="font-size: 104px; -unity-text-align: lower-left;"/>
         <ui:VisualElement style="flex-grow: 1; height: 20%; aspect-ratio: auto; max-height: 20%;"/>
         <ui:VisualElement name="ButtonGrid" class="grid-container" style="flex-basis: 32%; width: 872px; height: 346px; min-height: auto;">
             <ui:Button text="New Game" selectable="false" focusable="false" name="NewGameBtn" style="aspect-ratio: 1; font-size: 48px; -unity-text-align: lower-center; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px;"/>

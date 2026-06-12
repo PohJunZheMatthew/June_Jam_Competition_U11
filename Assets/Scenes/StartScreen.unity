@@ -2778,6 +2778,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelManager
   maxLevels: 4
+  maxTimeLeft: 60
+  Instructions: 
 --- !u!1 &1872815552
 GameObject:
   m_ObjectHideFlags: 0
@@ -2822,7 +2824,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5500000f558064bb88fefdd996d50eb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PopupManager
-  infoPopup: {fileID: 0}
 --- !u!1 &1995047449
 GameObject:
   m_ObjectHideFlags: 0
@@ -2945,8 +2946,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 3112988202516329694, guid: 0a72e7abd35aa405baff80cb0f216c67, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 1830396599213678706, guid: 0a72e7abd35aa405baff80cb0f216c67, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a72e7abd35aa405baff80cb0f216c67, type: 3}

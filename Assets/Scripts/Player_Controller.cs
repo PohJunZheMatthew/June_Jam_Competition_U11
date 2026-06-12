@@ -7,6 +7,8 @@ public class Player_Controller : MonoBehaviour
 {
     public float speed = 5f;
     public float maxForce = 10f;
+    public float sprint = 15f;
+    public float maxForceSprint = 20f;
     public float jumpForce = 5f;
     public float sens = 2f;
 
@@ -15,6 +17,7 @@ public class Player_Controller : MonoBehaviour
     private Vector2 move;
     public float checkRadius = 0.2f;
     public bool isGrounded;
+    private bool sprinting = false;
 
     private void Awake()
     {
@@ -24,7 +27,6 @@ public class Player_Controller : MonoBehaviour
     public void OnMove(InputValue value)
     {
         move = value.Get<Vector2>();
-        Debug.Log("Moving via input!");
     }
 
     [System.Obsolete]
@@ -32,8 +34,6 @@ public class Player_Controller : MonoBehaviour
     {
         if (value.isPressed && isGrounded)
         {
-            Debug.Log("Spacebar press registered by Unity!");
-
             Vector3 velo = rb.velocity;
             velo.y = 0f;
             rb.velocity = velo;
@@ -60,13 +60,16 @@ public class Player_Controller : MonoBehaviour
 
         Vector3 moveDir = camRight * move.x + camForward * move.y;
 
-        Vector3 targetVelocity = moveDir * speed;
+        Vector3 targetVelocity = moveDir * ((sprinting)? sprint:speed);
 
         Vector3 veloChange = targetVelocity - currentVelo;
         veloChange.y = 0f;
-
-        veloChange = Vector3.ClampMagnitude(veloChange, maxForce);
-
+        if (sprinting)
+        {
+            veloChange = Vector3.ClampMagnitude(veloChange, maxForceSprint);
+        }else{
+            veloChange = Vector3.ClampMagnitude(veloChange, maxForce);
+        }
         rb.AddForce(veloChange, ForceMode.VelocityChange);
     }
 
@@ -101,4 +104,5 @@ public class Player_Controller : MonoBehaviour
     {
         isGrounded = false;
     }
+    public void OnSprint(InputValue value) => sprinting = value.isPressed;
 }

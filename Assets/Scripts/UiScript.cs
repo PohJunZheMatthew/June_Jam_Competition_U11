@@ -8,6 +8,8 @@ public class UiScript : MonoBehaviour
     [Header("UXML Source Assets")]
     [SerializeField] private VisualTreeAsset mainMenuAsset;
     [SerializeField] private VisualTreeAsset settingsMenuAsset;
+    private Button continueBtn;
+    private Button newGameBtn;
     void Start()
     {
         if (transform.parent != null)
@@ -25,7 +27,6 @@ public class UiScript : MonoBehaviour
             return;
         }
 
-        // Initialize the first screen
         BindMainMenu();
     }
 
@@ -37,6 +38,17 @@ public class UiScript : MonoBehaviour
         if (root == null) return;
 
         Button settingsButton = root.Q<Button>("Settings");
+        newGameBtn = root.Q<Button>("NewGameBtn");
+        continueBtn = root.Q<Button>("ContinueBtn");
+        newGameBtn.clicked += () =>
+        {
+            LevelManager.Instance.SaveLevelProgress(0);
+            LevelManager.Instance.LoadCurrentLevel();
+        };
+        continueBtn.clicked += () =>
+        {
+            LevelManager.Instance.LoadCurrentLevel();
+        };
         if (settingsButton != null)
         {
             settingsButton.clicked += showSettings;
